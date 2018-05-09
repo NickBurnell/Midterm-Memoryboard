@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(Images/detroitSkyline.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 10px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    /* height: 100vh; */
+    color: white;
+    position: relative;
+}
+
+#game_board {
+    /* width: 300px; */
+    background-color: rgba(155,155,155,0.75);
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 5px;
+}
+
+#top_section {
+    width: 100%;
+    text-align: center;
+    height: auto;
+    background-color: rgba(155,155,155,0.75);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+}
+
+.title {
+    margin: 30px 0;
+}
+
+.reset_button {
+    width: 25%;
+    height: 30px;
+    border-radius: 5px;
+    color: white;
+    background: teal;
+    box-shadow: 1px 1px rgba(0,0,0,0.25);
+    margin-bottom: 10px;
+}
+
+.card {
+    width: 85px;
+    height: 85px;
+    margin: 10px;
+
+}
+
+
+img {
+    width: 100%;
+    height: 100%;
+    z-index: 11111;
+}
