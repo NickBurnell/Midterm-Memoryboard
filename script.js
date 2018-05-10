@@ -1,9 +1,14 @@
 $(document).ready(() => {
+
   let images = ["img/LIONS LOGO.jpg", "img/MGM LOGO.jpg", "img/REDWINGS LOGO.jpg", "img/TIGERS LOGO.jpg", "img/pistons logo.jpg", "img/little ceaser.png"];
   let imagesused = [];
   let twoImages = [];
   let rand;
-
+  let imageOne;
+  let imageTwo; 
+  let currentCards = [];
+  let card1;
+  let card2;
 
   $(".card").flip();
 
@@ -14,6 +19,40 @@ $(document).ready(() => {
     // console.log('starting game fading out menu');
   });
 
+  $("body").on('click', '.front', (e) => {
+    let clickedCard = $(e.target).parent().siblings(".back").children().attr("src");
+    // card1 = $(e.target).parent().parent();
+    // card2 = $(e.target).parent().parent();
+    // console.log(card1);
+    currentCards.push($(e.target).parent().parent()); 
+    console.log(currentCards); 
+    // console.log(clickedCard);
+    twoImages.push(clickedCard);
+    compare();
+  });
+
+  function compare() {
+    if (twoImages.length > 1) {
+      imageOne = twoImages[0];
+      imageTwo = twoImages[1]; 
+      // console.log(twoImages); 
+      // console.log(imageOne); 
+      // console.log(imageTwo); 
+      if (imageOne === imageTwo){
+        console.log('you made a match');
+        $(currentCards["0"]["0"]).hide();
+        $(currentCards[1]["0"]).hide();
+        // $(currentCards).hide(); 
+        twoImages = []; 
+        currentCards = []; 
+ } else {
+        console.log('No match found');
+        twoImages = []; 
+        currentCards = []; 
+      }
+    }
+  }
+
   function startGame() {
     $('.back').each(function () {
       rand = Math.floor(Math.random() * images.length); // generates random number based on array length
@@ -23,25 +62,8 @@ $(document).ready(() => {
       } else {
         imagesused.push(images[rand]); // if 
       }
-      console.log(images[rand]);
+      // console.log(images[rand]);
     });
-  }
-  $('.card').on('click', (e) => {
-    let source = $(e.target).find(".back img").attr('src');
-    twoImages.push(source);
-    console.log(source);
-    console.log(e.target);
-    console.log(twoImages);
-    // compare();
-  });
-  function compare() {
-    if (twoImages.length > 1) {
-      if (twoImages[0] === twoImages[1]) {
-        console.log('you made a match');
-      } else {
-        console.log('No match found');
-      }
-    }
   }
 
 
