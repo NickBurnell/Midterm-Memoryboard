@@ -27,6 +27,7 @@
     align-items: center;
     flex-wrap: wrap;
     background-color: rgba(150,150,150,.75);
+    position: relative; 
   }
 
   .btn_start {
@@ -38,6 +39,14 @@
     font-size: 20px;
   }
 
+  .reset {
+    border-radius: 12px;
+    width: 100px;
+    margin-bottom: 10px;
+    font-family: 'Yatra One', cursive;
+    font-size: 20px;
+  }
+  
   .card {
     width: 65px;
     height: 65px;
@@ -58,7 +67,9 @@
     width: 300px;
     height: 384px;
     background-color: rgba(0, 117, 184,.65);
-    position: absolute;
+    position: absolute; 
+    top: 196px;
+
 }
 
   #cover h1 {
@@ -77,11 +88,49 @@ p {
   margin: 20px;
 }
 
+.everything {
+  display: flex; 
+  flex-direction: column;
+  align-items: center; 
+}
+
 .title h1 {
-  position: absolute;
   top: 20px;
   color: white;
   font-family: 'Yatra One', cursive;
   text-align: center;
   padding: 10px;
+}
+
+@media only screen and (min-width:1200px) {
+ 
+ 
+.title h1 {
+  font-size: 75px; 
+  
+} 
+
+#cover {
+  top: 43px;
+}
+
+
+#card_container {
+  max-width: 700px; 
+  height:700px; 
+}
+
+.card {
+  height: 150px;
+  width: 150px; 
+}
+#cover {
+  height: 650px;
+  width: 650px; 
+}
+
+p {
+  height: 500px; 
+  width: 500px; 
+}
 }
