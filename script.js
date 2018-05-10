@@ -67,11 +67,6 @@ $(document).ready(() => {
   }
 
 
-
-
-
-
-
   /*
   $(".back").each(function() {
     rand = Math.floor(Math.random() * images.length);
@@ -84,8 +79,6 @@ $(document).ready(() => {
   // console.log(images[rand]);
   // console.log(images[rand]);
   */
-
-
 
 
 })
