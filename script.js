@@ -1,4 +1,5 @@
 $(document).ready(() => {
+
   let images = ["img/LIONS LOGO.jpg", "img/MGM LOGO.jpg", "img/REDWINGS LOGO.jpg", "img/TIGERS LOGO.jpg", "img/pistons logo.jpg", "img/little ceaser.png"];
   let imagesused = [];
   let twoImages = [];
@@ -14,34 +15,37 @@ $(document).ready(() => {
     // console.log('starting game fading out menu');
   });
 
-  function startGame() {
-    $('.back').each(function () {
-      rand = Math.floor(Math.random() * images.length); // generates random number based on array length
-      $(this).append('<img src="' + images[rand] + '">'); // adding image to back side of each div
-      if (imagesused.indexOf(images[rand]) !== 1) { // searched images 'used' array if the index of this image is not used in the array it will splice the image out of the array
-        images.splice(rand, 1);
-      } else {
-        imagesused.push(images[rand]); // if 
-      }
-      console.log(images[rand]);
-    });
-  }
-  $('.card').on('click', (e) => {
-    let source = $(e.target).find(".back img").attr('src');
+  
+  $("body").on('click', '.front', (e) => {
+    let source = $(e.target).attr('src');
+    let test = $(e.target).parent().siblings(".back").children().attr("src");
+    console.log(test);
     twoImages.push(source);
-    console.log(source);
-    console.log(e.target);
-    console.log(twoImages);
-    // compare();
+    compare();
   });
+
   function compare() {
     if (twoImages.length > 1) {
-      if (twoImages[0] === twoImages[1]) {
+      console.log("test");
+      if (twoImages === twoImages) {
         console.log('you made a match');
       } else {
         console.log('No match found');
       }
     }
+  }
+
+  function startGame() {
+    $('.back').each(function () {
+      rand = Math.floor(Math.random() * images.length); // generates random number based on array length
+      $(this).append('<img src="' + images[rand] + '">'); // adding image to back side of each div
+      if (imagesused.indexOf(images[rand]) !== -1) { // searched images 'used' array if the index of this image is not used in the array it will splice the image out of the array
+        images.splice(rand, 1);
+      } else {
+        imagesused.push(images[rand]); // if 
+      }
+      // console.log(images[rand]);
+    });
   }
 
 
