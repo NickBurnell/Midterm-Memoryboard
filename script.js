@@ -26,15 +26,15 @@ $(document).ready(() => {
       // console.log(images[rand]);
     });
 
-    $(".card").on("click", (e) => {
-      let source = $(e.target).attr("src");
-      twoImages.push(source);
-      console.log(source);
-      console.log(twoImages);
-      compare();
-    });
-
+    
   }
+      $(".card").on("click", (e) => {
+        let source = $(e.target).attr("src");
+        twoImages.push(source);
+        console.log(source);
+        console.log(twoImages);
+        compare();
+      });
 
   function compare() {
     if (twoImages.length > 1) {
