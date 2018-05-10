@@ -55,7 +55,7 @@ body {
 .card {
   width: 65px;
   height: 65px;
-  margin: 12px;
+  margin: 5px;
 }
 
 img {
@@ -73,7 +73,7 @@ img {
   height: 384px;
   background-color: rgba(0, 117, 184, 0.9);
   position: absolute;
-  top: 194px;
+  top: 388px;
 }
 
 .flexInstructions {
@@ -120,12 +120,13 @@ p {
     font-size: 55px;
   }
   #card_container {
-    max-width: 500px;
+    max-width: 600px;
     height: 585px;
   }
   .card {
     width: 115px;
     height: 115px;
+    margin: 5px;
   }
   .reset {
     margin-bottom: 40px;
@@ -137,11 +138,10 @@ p {
   #cover {
     height: 560px;
     width: 500px;
-    top: 287px;
+    top: 360px;
   }
   .flexInstructions{
     height: 300px;
-    width: 385px;
   }
   .flexInstructions p {
     font-size: 30px;
@@ -164,7 +164,7 @@ p {
   #cover {
     height: 525px;
     width: 700px;
-    top: 176px;
+    top: 266px;
   }
   #card_container {
     max-width: 700px;
@@ -172,7 +172,9 @@ p {
   }
   .card {
     height: 120px;
+    position: fixed;
     width: 120px;
+    margin: 10px;
   }
   p {
     height: 225px;

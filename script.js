@@ -9,9 +9,10 @@ $(document).ready(() => {
   let currentCards = [];
   let card1;
   let card2;
+  let score = 0;
 
   $(".card").flip();
-
+  
   // start button
   $(".btn_start").on("click", () => {
     startGame(); // calling start game function
@@ -19,9 +20,13 @@ $(document).ready(() => {
     // console.log('starting game fading out menu');
   });
 
+  $(".reset").on("click", () => {
+    startGame();
+  })
+
   $("body").on('click', '.front', (e) => {
     let clickedCard = $(e.target).parent().siblings(".back").children().attr("src");
-    // card1 = $(e.target).parent().parent();
+    card1 = $(e.target).parent().parent();
     // card2 = $(e.target).parent().parent();
     // console.log(card1);
     currentCards.push($(e.target).parent().parent()); 
@@ -39,13 +44,22 @@ $(document).ready(() => {
       // console.log(imageOne); 
       // console.log(imageTwo); 
       if (imageOne === imageTwo){
+        score += 100;
+        $(".score").text(`Score: ${score}`);
+        console.log(score);
         console.log('you made a match');
         $(currentCards["0"]["0"]).hide();
         $(currentCards[1]["0"]).hide();
         // $(currentCards).hide(); 
         twoImages = []; 
         currentCards = []; 
- } else {
+        if (score === 600) {
+          console.log("you win");
+          startGame();
+        }
+      } else {
+        $(currentCards["0"]["0"]).flip(false);
+        $(currentCards[1]["0"]).flip(false);
         console.log('No match found');
         twoImages = []; 
         currentCards = []; 
@@ -64,6 +78,10 @@ $(document).ready(() => {
       }
       // console.log(images[rand]);
     });
+
+    $(".front").each(function() {
+      $(this).append('<img src="img/grand-circus.jpg">');
+    })
   }
 
 
@@ -80,5 +98,8 @@ $(document).ready(() => {
   // console.log(images[rand]);
   */
 
+
+  //Work on reset function, have both images show before turning back over
+  // If match keep both face up not remove.
 
 })
