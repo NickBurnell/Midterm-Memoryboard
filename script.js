@@ -27,10 +27,11 @@ $(document).ready(() => {
     });
   }
   $('.card').on('click', (e) => {
-    let source = $(e.target).children().attr('src');
+    let source = $(e.target).find(".back img").attr('src');
     twoImages.push(source);
     console.log(source);
     console.log(e.target);
+    console.log(twoImages);
     // compare();
   });
   function compare() {
