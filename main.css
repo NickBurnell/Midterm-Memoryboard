@@ -115,6 +115,41 @@ p {
   color: white;
 }
 
+@media only screen and (min-width:768px) {
+  .title h1 {
+    font-size: 55px;
+  }
+  #card_container {
+    max-width: 500px;
+    height: 585px;
+  }
+  .card {
+    width: 115px;
+    height: 115px;
+  }
+  .reset {
+    margin-bottom: 40px;
+    height: 50px;
+  }
+  .score {
+    margin: 30px;
+  }
+  #cover {
+    height: 560px;
+    width: 500px;
+    top: 287px;
+  }
+  .flexInstructions{
+    height: 300px;
+    width: 385px;
+  }
+  .flexInstructions p {
+    font-size: 30px;
+  }
+  #cover h1{
+    font-size: 45px;
+  }
+}
 @media only screen and (min-width:1200px) {
   body {
     height: 100%;
@@ -129,7 +164,7 @@ p {
   #cover {
     height: 525px;
     width: 700px;
-    top: 145px;
+    top: 176px;
   }
   #card_container {
     max-width: 700px;
@@ -143,5 +178,12 @@ p {
     height: 225px;
     width: 500px;
     font-size: 30px;
+  }
+  #cover h1{
+    font-size: 60px;
+  }
+  .reset {
+    height: 50px;
+    margin-bottom: 20px;
   }
 }
