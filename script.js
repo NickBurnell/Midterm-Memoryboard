@@ -7,7 +7,8 @@ $(document).ready(() => {
   let imageOne;
   let imageTwo; 
   let currentCards = [];
-
+  let card1;
+  let card2;
 
   $(".card").flip();
 
@@ -20,7 +21,10 @@ $(document).ready(() => {
 
   $("body").on('click', '.front', (e) => {
     let clickedCard = $(e.target).parent().siblings(".back").children().attr("src");
-    currentCards.push($(e.target)); 
+    // card1 = $(e.target).parent().parent();
+    // card2 = $(e.target).parent().parent();
+    // console.log(card1);
+    currentCards.push($(e.target).parent().parent()); 
     console.log(currentCards); 
     // console.log(clickedCard);
     twoImages.push(clickedCard);
@@ -36,16 +40,15 @@ $(document).ready(() => {
       // console.log(imageTwo); 
       if (imageOne === imageTwo){
         console.log('you made a match');
-        $(currentCards).parent().hide();
+        $(currentCards["0"]["0"]).hide();
+        $(currentCards[1]["0"]).hide();
         // $(currentCards).hide(); 
-        twoImages = [ ]; 
+        twoImages = []; 
         currentCards = []; 
- 
  } else {
         console.log('No match found');
-        twoImages = [ ]; 
-        currentCards=[]; 
-
+        twoImages = []; 
+        currentCards = []; 
       }
     }
   }
