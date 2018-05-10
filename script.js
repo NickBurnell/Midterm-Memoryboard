@@ -21,6 +21,7 @@ $(document).ready(() => {
   $("body").on('click', '.front', (e) => {
     let clickedCard = $(e.target).parent().siblings(".back").children().attr("src");
     currentCards.push($(e.target)); 
+    console.log(currentCards); 
     // console.log(clickedCard);
     twoImages.push(clickedCard);
     compare();
@@ -30,14 +31,13 @@ $(document).ready(() => {
     if (twoImages.length > 1) {
       imageOne = twoImages[0];
       imageTwo = twoImages[1]; 
-      console.log(twoImages); 
-      console.log(imageOne); 
-      console.log(imageTwo); 
+      // console.log(twoImages); 
+      // console.log(imageOne); 
+      // console.log(imageTwo); 
       if (imageOne === imageTwo){
         console.log('you made a match');
-        console.log(currentCards[0][1]); 
-        $(currentCards[0][0]).hide();
-        $(currentCards[1][0]).hide(); 
+        $(currentCards).parent().hide();
+        // $(currentCards).hide(); 
         twoImages = [ ]; 
         currentCards = []; 
  
