@@ -4,6 +4,9 @@ $(document).ready(() => {
   let imagesused = [];
   let twoImages = [];
   let rand;
+  let imageOne;
+  let imageTwo; 
+  let currentCards = [];
 
 
   $(".card").flip();
@@ -15,22 +18,34 @@ $(document).ready(() => {
     // console.log('starting game fading out menu');
   });
 
-  
   $("body").on('click', '.front', (e) => {
-    let source = $(e.target).attr('src');
-    let test = $(e.target).parent().siblings(".back").children().attr("src");
-    console.log(test);
-    twoImages.push(source);
+    let clickedCard = $(e.target).parent().siblings(".back").children().attr("src");
+    currentCards.push($(e.target)); 
+    // console.log(clickedCard);
+    twoImages.push(clickedCard);
     compare();
   });
 
   function compare() {
     if (twoImages.length > 1) {
-      console.log("test");
-      if (twoImages === twoImages) {
+      imageOne = twoImages[0];
+      imageTwo = twoImages[1]; 
+      console.log(twoImages); 
+      console.log(imageOne); 
+      console.log(imageTwo); 
+      if (imageOne === imageTwo){
         console.log('you made a match');
-      } else {
+        console.log(currentCards[0][1]); 
+        $(currentCards[0][0]).hide();
+        $(currentCards[1][0]).hide(); 
+        twoImages = [ ]; 
+        currentCards = []; 
+ 
+ } else {
         console.log('No match found');
+        twoImages = [ ]; 
+        currentCards=[]; 
+
       }
     }
   }
