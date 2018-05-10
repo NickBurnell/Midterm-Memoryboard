@@ -18,7 +18,7 @@ $(document).ready(() => {
     $('.back').each(function () {
       rand = Math.floor(Math.random() * images.length); // generates random number based on array length
       $(this).append('<img src="' + images[rand] + '">'); // adding image to back side of each div
-      if (imagesused.indexOf(images[rand]) !== -1) { // searched images 'used' array if the index of this image is not used in the array it will splice the image out of the array
+      if (imagesused.indexOf(images[rand]) !== 1) { // searched images 'used' array if the index of this image is not used in the array it will splice the image out of the array
         images.splice(rand, 1);
       } else {
         imagesused.push(images[rand]); // if 
