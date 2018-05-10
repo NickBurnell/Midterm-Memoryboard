@@ -23,23 +23,20 @@ $(document).ready(() => {
       } else {
         imagesused.push(images[rand]); // if 
       }
-      // console.log(images[rand]);
+      console.log(images[rand]);
     });
-
-    $(".card").on("click", (e) => {
-      let source = $(e.target).attr("src");
-      twoImages.push(source);
-      console.log(source);
-      console.log(twoImages);
-      compare();
-    });
-
   }
-
+  $('.card').on('click', (e) => {
+    let source = $(e.target).children().attr('src');
+    twoImages.push(source);
+    console.log(source);
+    console.log(e.target);
+    // compare();
+  });
   function compare() {
     if (twoImages.length > 1) {
       if (twoImages[0] === twoImages[1]) {
-        console.log('you made a match!');
+        console.log('you made a match');
       } else {
         console.log('No match found');
       }
