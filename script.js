@@ -1,15 +1,56 @@
 $(document).ready(() => {
-    $(".card").flip();
-  
-    $(".btn_start").on("click", () => {
-      $("#cover").fadeOut();
-      console.log("test");
-    })
-  
-  let images = ["img/logo.png", "img/lions.png", "img/wings.png", "img/pistons.png", "img/faygo.png", "img/tigers.png"];
+  let images = ["img/LIONS LOGO.jpg", "img/MGM LOGO.jpg", "img/REDWINGS LOGO.jpg", "img/TIGERS LOGO.jpg", "img/pistons logo.jpg", "img/little ceaser.png"];
   let imagesused = [];
+  let twoImages = [];
   let rand;
-  
+
+
+  $(".card").flip();
+
+  // start button
+  $(".btn_start").on("click", () => {
+    startGame(); // calling start game function
+    $("#cover").fadeOut(); // fades the start game menu out
+    // console.log('starting game fading out menu');
+  });
+
+  function startGame() {
+    $('.back').each(function () {
+      rand = Math.floor(Math.random() * images.length); // generates random number based on array length
+      $(this).append('<img src="' + images[rand] + '">'); // adding image to back side of each div
+      if (imagesused.indexOf(images[rand]) !== -1) { // searched images 'used' array if the index of this image is not used in the array it will splice the image out of the array
+        images.splice(rand, 1);
+      } else {
+        imagesused.push(images[rand]); // if 
+      }
+      console.log(images[rand]);
+    });
+  }
+  $('.card').on('click', (e) => {
+    let source = $(e.target).find(".back img").attr('src');
+    twoImages.push(source);
+    console.log(source);
+    console.log(e.target);
+    console.log(twoImages);
+    // compare();
+  });
+  function compare() {
+    if (twoImages.length > 1) {
+      if (twoImages[0] === twoImages[1]) {
+        console.log('you made a match');
+      } else {
+        console.log('No match found');
+      }
+    }
+  }
+
+
+
+
+
+
+
+  /*
   $(".back").each(function() {
     rand = Math.floor(Math.random() * images.length);
     $(this).append('<img src="' + images[rand] + '">');
@@ -20,9 +61,9 @@ $(document).ready(() => {
   console.log('<img src="' + images[rand] + '">');
   // console.log(images[rand]);
   // console.log(images[rand]);
-  
-  
-  
-  
-  
-  }) 
+  */
+
+
+
+
+})
