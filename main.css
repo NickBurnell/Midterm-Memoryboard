@@ -4,6 +4,7 @@
     border: none;
     outline: none;
     box-sizing: border-box;
+
   }
   
   body {
@@ -27,11 +28,16 @@
     flex-wrap: wrap;
     background-color: rgba(150,150,150,.75);
   }
-  
+
   .btn_start {
     padding: 10px;
+    border-radius: 12px;
+    width: 100px;
+    margin-bottom: 10px;
+    font-family: 'Yatra One', cursive;
+    font-size: 20px;
   }
-  
+
   .card {
     width: 65px;
     height: 65px;
@@ -49,10 +55,33 @@
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-    width: 600px;
-    height: 600px;
-    background-color: rgba(255,0,0,.85);
+    width: 300px;
+    height: 384px;
+    background-color: rgba(0, 117, 184,.65);
     position: absolute;
-    transform: translateX(-5px);
-    z-index: 44;
-  }
+}
+
+  #cover h1 {
+    font-family: 'Passion One', cursive;
+    font-family: 'Rubik', sans-serif;
+    color: white;
+}
+
+p {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  font-size: 21px;
+  background-color: rgba(150, 150, 150,.70);
+  font-family: 'Rubik', sans-serif;
+  margin: 20px;
+}
+
+.title h1 {
+  position: absolute;
+  top: 20px;
+  color: white;
+  font-family: 'Yatra One', cursive;
+  text-align: center;
+  padding: 10px;
+}
