@@ -48,8 +48,9 @@ $(document).ready(() => {
         $(".score").text(`Score: ${score}`);
         console.log(score);
         console.log('you made a match');
-        $(currentCards["0"]["0"]).hide();
-        $(currentCards[1]["0"]).hide();
+        $(currentCards["0"]["0"]).css('visibility', 'hidden');
+        ;
+        $(currentCards[1]["0"]).css('visibility', 'hidden');
         // $(currentCards).hide(); 
         twoImages = []; 
         currentCards = []; 

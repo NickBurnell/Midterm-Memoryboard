@@ -18,7 +18,7 @@ body {
 }
 
 #card_container {
-  max-width: 24rem;
+  min-width: 24rem;
   height: 24rem;
   padding: 10px;
   display: flex;
@@ -55,7 +55,7 @@ body {
 .card {
   width: 65px;
   height: 65px;
-  margin: 5px;
+  margin: 14px;
 }
 
 img {
@@ -73,7 +73,7 @@ img {
   height: 384px;
   background-color: rgba(0, 117, 184, 0.9);
   position: absolute;
-  top: 388px;
+  top: 193px;
 }
 
 .flexInstructions {
