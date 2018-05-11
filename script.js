@@ -9,18 +9,23 @@ $(document).ready(() => {
   let clickedCard;
   let score = 0;
 
+  $(".win_game").hide();
   $(".card").flip();
   
   // start button
   $(".btn_start").on("click", () => {
+    $(".card").show();
     startGame(); // calling start game function
-    $("#cover").fadeOut(); // fades the start game menu out
+    $("#cover").fadeOut();
+    $(".win_game").fadeOut(); // fades the start game menu out
     // console.log('starting game fading out menu');
   });
 
   $(".reset").on("click", () => {
-    $("#cover").fadeIn();
     currentCards = [];
+    imagesused = [];
+    $(".card").hide();
+    $("#cover").fadeIn();
   })
 
   $(document).on('click', '.front', (e) => {
@@ -52,6 +57,7 @@ $(document).ready(() => {
         twoImages = []; 
         currentCards = []; 
         if (score === 600) {
+          $(".win_game").fadeIn();
           alert("Congrats you win!");
         }
       } else {
@@ -67,12 +73,12 @@ $(document).ready(() => {
       rand = Math.floor(Math.random() * images.length); // generates random number based on array length
       $(this).append('<img src="' + images[rand] + '">'); // adding image to back side of each div
       if (imagesused.indexOf(images[rand]) !== -1) { // searched images 'used' array if the index of this image is not used in the array it will splice the image out of the array
-        images.splice(rand, 1);
-      } else {
-        imagesused.push(images[rand]); // if 
-      }
-      currentCards = [];
-      twoImages = [];
+      images.splice(rand, 1);
+    } else {
+      imagesused.push(images[rand]); // if 
+    }
+    currentCards = [];
+    twoImages = [];
       // console.log(images[rand]);
     });
 
