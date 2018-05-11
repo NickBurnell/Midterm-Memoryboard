@@ -4,11 +4,9 @@ $(document).ready(() => {
   let imagesused = [];
   let twoImages = [];
   let rand;
-  let imageOne;
-  let imageTwo; 
+  let imageOne, imageTwo;
   let currentCards = [];
-  let card1;
-  let card2;
+  let clickedCard;
   let score = 0;
 
   $(".card").flip();
@@ -21,47 +19,43 @@ $(document).ready(() => {
   });
 
   $(".reset").on("click", () => {
-    startGame();
+    $("#cover").fadeIn();
+    currentCards = [];
   })
 
-  $("body").on('click', '.front', (e) => {
-    let clickedCard = $(e.target).parent().siblings(".back").children().attr("src");
-    card1 = $(e.target).parent().parent();
-    // card2 = $(e.target).parent().parent();
-    // console.log(card1);
-    currentCards.push($(e.target).parent().parent()); 
-    console.log(currentCards); 
-    // console.log(clickedCard);
+  $(document).on('click', '.front', (e) => {
+    clickedCard = $(e.target).parent().siblings(".back").children().attr("src");  // The actual image src w clicked (back side)
+    currentCards.push($(e.target).parent().parent()); // The actual cards we clicked into an array 
     twoImages.push(clickedCard);
     compare();
   });
 
+  function flipCards() {
+    $(currentCards["0"]["0"]).flip(false);
+    $(currentCards[1]["0"]).flip(false);
+    console.log(currentCards["0"]["0"]);
+    console.log(currentCards[1]["0"]);
+  }
+
   function compare() {
-    if (twoImages.length > 1) {
+    if (twoImages.length === 2) {
       imageOne = twoImages[0];
-      imageTwo = twoImages[1]; 
-      // console.log(twoImages); 
-      // console.log(imageOne); 
-      // console.log(imageTwo); 
+      imageTwo = twoImages[1];
       if (imageOne === imageTwo){
         score += 100;
         $(".score").text(`Score: ${score}`);
         console.log(score);
         console.log('you made a match');
         $(currentCards["0"]["0"]).css('visibility', 'hidden');
-        ;
+        console.log(currentCards["0"]["0"]);
         $(currentCards[1]["0"]).css('visibility', 'hidden');
-        // $(currentCards).hide(); 
         twoImages = []; 
         currentCards = []; 
         if (score === 600) {
-          console.log("you win");
-          startGame();
+          alert("Congrats you win!");
         }
       } else {
-        $(currentCards["0"]["0"]).flip(false);
-        $(currentCards[1]["0"]).flip(false);
-        console.log('No match found');
+        setTimeout(flipCards(), 1000);
         twoImages = []; 
         currentCards = []; 
       }
@@ -77,6 +71,8 @@ $(document).ready(() => {
       } else {
         imagesused.push(images[rand]); // if 
       }
+      currentCards = [];
+      twoImages = [];
       // console.log(images[rand]);
     });
 
