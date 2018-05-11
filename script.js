@@ -35,7 +35,7 @@ $(document).ready(() => {
     currentCards.push($(e.target).parent().parent()); // The actual cards we clicked into an array
     twoImages.push(clickedCard);
     if (twoImages.length === 2) {
-      setTimeout(compare, 1500);
+      setTimeout(compare, 3000);
     }
   });
 
