@@ -19,18 +19,14 @@ $(document).ready(() => {
     startGame(); // calling start game function
     $("#cover").fadeOut();
     $(".win_game").fadeOut(); // fades the start game menu out
-    // console.log('starting game fading out menu');
   });
   $('.play_again').on('click', () => {
     window.location.reload(true); 
   })
   $(".reset").on("click", () => {
-    // $("#card_container").detach(".card");
     currentCards = [];
     imagesused = [];
-    // $(".card").hide();
     $("#cover").fadeIn();
-    // $(container).html("");
     window.location.reload(true);
   });
  
@@ -46,12 +42,9 @@ $(document).ready(() => {
   function flipCards() {
     $(currentCards["0"]["0"]).flip(false);
     $(currentCards[1]["0"]).flip(false);
-    console.log(currentCards["0"]["0"]);
-    console.log(currentCards[1]["0"]);
   }
  
   function compare() {
-    // if (twoImages.length === 2) {
       imageOne = twoImages[0];
       imageTwo = twoImages[1];
       if (imageOne === imageTwo){
@@ -66,14 +59,12 @@ $(document).ready(() => {
         currentCards = [];
         if (score === 600) {
           $(".win_game").fadeIn();
-          // alert("Congrats you win!");
         }
       } else {
         setTimeout(flipCards(), 1000);
         twoImages = [];
         currentCards = [];
       }
-    // }
   }
  
   function startGame() {
@@ -86,34 +77,14 @@ $(document).ready(() => {
       if (imagesused.indexOf(images[rand]) !== -1) { // searched images 'used' array if the index of this image is not used in the array it will splice the image out of the array
       images.splice(rand, 1);
     } else {
-      imagesused.push(images[rand]); // if
+      imagesused.push(images[rand])
     }
     currentCards = [];
     twoImages = [];
-      // console.log(images[rand]);
     });
  
     $(".front").each(function() {
       $(this).append('<img src="img/grand-circus.jpg">');
     })
   }
- 
- 
-  /*
-  $(".back").each(function() {
-    rand = Math.floor(Math.random() * images.length);
-    $(this).append('<img src="' + images[rand] + '">');
-    if (imagesused.search(images[rand]) != -1) images.splice(rand, 1);
-    else (imagesused.push(images[rand]));
-  });
-  
-  console.log('<img src="' + images[rand] + '">');
-  // console.log(images[rand]);
-  // console.log(images[rand]);
-  */
- 
- 
-  //Work on reset function, have both images show before turning back over
-  // If match keep both face up not remove.
- 
  });
