@@ -8,7 +8,8 @@ $(document).ready(() => {
   let currentCards = [];
   let clickedCard;
   let score = 0;
-
+  let container = $("#card_container");
+ 
   $(".win_game").hide();
   $(".card").flip();
   
@@ -20,28 +21,31 @@ $(document).ready(() => {
     $(".win_game").fadeOut(); // fades the start game menu out
     // console.log('starting game fading out menu');
   });
-
+ 
   $(".reset").on("click", () => {
+    // $("#card_container").detach(".card");
     currentCards = [];
     imagesused = [];
-    $(".card").hide();
+    // $(".card").hide();
     $("#cover").fadeIn();
-  })
-
+    // $(container).html("");
+    window.location.reload(true);
+  });
+ 
   $(document).on('click', '.front', (e) => {
     clickedCard = $(e.target).parent().siblings(".back").children().attr("src");  // The actual image src w clicked (back side)
-    currentCards.push($(e.target).parent().parent()); // The actual cards we clicked into an array 
+    currentCards.push($(e.target).parent().parent()); // The actual cards we clicked into an array
     twoImages.push(clickedCard);
     compare();
   });
-
+ 
   function flipCards() {
     $(currentCards["0"]["0"]).flip(false);
     $(currentCards[1]["0"]).flip(false);
     console.log(currentCards["0"]["0"]);
     console.log(currentCards[1]["0"]);
   }
-
+ 
   function compare() {
     if (twoImages.length === 2) {
       imageOne = twoImages[0];
@@ -54,40 +58,43 @@ $(document).ready(() => {
         $(currentCards["0"]["0"]).css('visibility', 'hidden');
         console.log(currentCards["0"]["0"]);
         $(currentCards[1]["0"]).css('visibility', 'hidden');
-        twoImages = []; 
-        currentCards = []; 
+        twoImages = [];
+        currentCards = [];
         if (score === 600) {
           $(".win_game").fadeIn();
           alert("Congrats you win!");
         }
       } else {
         setTimeout(flipCards(), 1000);
-        twoImages = []; 
-        currentCards = []; 
+        twoImages = [];
+        currentCards = [];
       }
     }
   }
-
+ 
   function startGame() {
+    $(".back").each(function (index1, elem){
+      $(elem).html("");
+    });
     $('.back').each(function () {
       rand = Math.floor(Math.random() * images.length); // generates random number based on array length
       $(this).append('<img src="' + images[rand] + '">'); // adding image to back side of each div
       if (imagesused.indexOf(images[rand]) !== -1) { // searched images 'used' array if the index of this image is not used in the array it will splice the image out of the array
       images.splice(rand, 1);
     } else {
-      imagesused.push(images[rand]); // if 
+      imagesused.push(images[rand]); // if
     }
     currentCards = [];
     twoImages = [];
       // console.log(images[rand]);
     });
-
+ 
     $(".front").each(function() {
       $(this).append('<img src="img/grand-circus.jpg">');
     })
   }
-
-
+ 
+ 
   /*
   $(".back").each(function() {
     rand = Math.floor(Math.random() * images.length);
@@ -100,9 +107,9 @@ $(document).ready(() => {
   // console.log(images[rand]);
   // console.log(images[rand]);
   */
-
-
+ 
+ 
   //Work on reset function, have both images show before turning back over
   // If match keep both face up not remove.
-
-})
+ 
+ });
