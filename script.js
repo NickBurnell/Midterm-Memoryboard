@@ -22,7 +22,7 @@ $(document).ready(() => {
     // console.log('starting game fading out menu');
   });
   $('.play_again').on('click', () => {
-    window.location.reload(true);
+    window.location.reload(true); 
   })
   $(".reset").on("click", () => {
     // $("#card_container").detach(".card");
@@ -38,7 +38,9 @@ $(document).ready(() => {
     clickedCard = $(e.target).parent().siblings(".back").children().attr("src");  // The actual image src w clicked (back side)
     currentCards.push($(e.target).parent().parent()); // The actual cards we clicked into an array
     twoImages.push(clickedCard);
-    compare();
+    if (twoImages.length === 2) {
+      compare();
+    }
   });
  
   function flipCards() {
@@ -49,7 +51,7 @@ $(document).ready(() => {
   }
  
   function compare() {
-    if (twoImages.length === 2) {
+    // if (twoImages.length === 2) {
       imageOne = twoImages[0];
       imageTwo = twoImages[1];
       if (imageOne === imageTwo){
@@ -64,14 +66,14 @@ $(document).ready(() => {
         currentCards = [];
         if (score === 600) {
           $(".win_game").fadeIn();
-          alert("Congrats you win!");
+          // alert("Congrats you win!");
         }
       } else {
         setTimeout(flipCards(), 1000);
         twoImages = [];
         currentCards = [];
       }
-    }
+    // }
   }
  
   function startGame() {
