@@ -21,7 +21,9 @@ $(document).ready(() => {
     $(".win_game").fadeOut(); // fades the start game menu out
     // console.log('starting game fading out menu');
   });
- 
+  $('.play_again').on('click', () => {
+    window.location.reload(true);
+  })
   $(".reset").on("click", () => {
     // $("#card_container").detach(".card");
     currentCards = [];
