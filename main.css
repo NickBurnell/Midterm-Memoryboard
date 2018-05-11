@@ -117,17 +117,20 @@ p {
 
 .win_game {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  position: fixed;
-  top: 15%;
-  background-color: red;
-  width: 500px;
-  height: 500px;
-  bottom: 0;
-  left: 30%;
+  width: 300px;
+  height: 384px;
+  background-color: rgba(0, 117, 184, 0.9);
+  position: absolute;
+  top: 193px;
+  font-family: 'Rubik', sans-serif;
+  color: white;  
 }
+
+
+
 
 @media only screen and (min-width:768px) {
   .title h1 {
