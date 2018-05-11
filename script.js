@@ -50,10 +50,7 @@ $(document).ready(() => {
       if (imageOne === imageTwo){
         score += 100;
         $(".score").text(`Score: ${score}`);
-        console.log(score);
-        console.log('you made a match');
         $(currentCards["0"]["0"]).css('visibility', 'hidden');
-        console.log(currentCards["0"]["0"]);
         $(currentCards[1]["0"]).css('visibility', 'hidden');
         twoImages = [];
         currentCards = [];
